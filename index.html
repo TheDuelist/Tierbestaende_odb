@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>LTT</title>
+        <link rel="shortcut icon" type="image/x-icon" href="assets/images/tractor.png"/>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="https://d3js.org/d3.v3.min.js"></script>
+        <script src="https://d3js.org/topojson.v1.min.js"></script>
+        <script src="assets/js/d3.v3.min.js"></script>
+        <script src="assets/js/topojson.v1.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="assets/css/index.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/css/bootstrap-theme.min.css" rel="stylesheet">
+
+        <link href="assets/css/style.css" rel="stylesheet">
+
+
+    </head>
+
+    <body>
+        <div class="main">
+            <header class="bg-img header">
+                <nav class="navbar navbar-default navbar-vira">
+                    <div class="container">
+                        <div class="navigation-bar">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div id="menu-item" class="menu-item">
+                                        <div class="container">
+                                            <ul>
+                                                <a href="index.php"><li>Startseite</li></a>
+                                                <a href="#simulation"><li>Einführung</li></a>
+                                                <a href="#legend"><li>Legende</li></a>
+                                                <a href="#map"><li>Karte</li></a>
+                                                <a href="#details"><li>Details</li></a>
+                                                <a href="#impressum"><li>Impressum</li></a>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="container">
+                    <div class="row">
+                        <div class="intro-box">
+                            <div class="intro">
+                                <h1>Landwirtschaftliche Tierbestände Thurgau</h1>
+                                <p>von Eno Shimi</p>
+                                <a class="btn vira-btn" href="#map">Gehe direkt zur Karte</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <section id="simulation" class="simulation section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <h2 class="title">Einführung</h2>
+                            <p>
+                                Bei Landwirtschaftliche Tierbestände Thurgau geht es darum qualitativ hochwertige Informationen und Daten übersichtlich und leicht verständlich für jeden zur Verfügung zu stellen. Unsere Zielgruppe sind Leute die im landwirtschaftlichen Raum beruflich tätig sind oder Leute die sich die Daten anderweitig zu Nutzen machen oder sich einfach nur aus Interesse umsehen. Damit alles gut funktioniert, verwenden wir JavaScript, PHP, CSS und natürlich HTML, was das ganze auch relativ simpel hält.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="legend" class="legende">
+                <div class="container">
+                    <h2 class="title">Legende</h2>
+                    <p>
+                        Sie können die Daten in der Tabelle ansehen und scrollen um mehr zu erfahren. Rechts können Sie einen oder mehrere Filter aktivieren um die gewünschten Daten gezeigt zu bekommen. Durch den "Filter zurücksetzen" Button können Sie die gewählten Filter wieder deaktivieren.
+                    </p>
+                </div>
+            </section>
+
+            <section id="map">
+                <div id="maepli">
+                    <h2 class="title">Karte</h2>
+                    <img src="assets/images/Karte.png" alt="Karte" width="850" height="550">
+                </div>
+            </section>
+            <form name="drop" method="post">
+            <section id="details" class="legende">
+                <div class="container">
+                    <h2 class="title">Details</h2><br>
+                    <div class="select-style2">
+                        <select  name="year" size="1" autocomplete="off" id="selectbox">
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                            </select>
+                    </div>
+                    
+                    <div class="select-style2">
+                        <select name = "Gem" size="1" autocomplete="off" id="selectbox">
+                            <option value="Aadorf">Aadorf</option>
+                            <option value="Affeltrangen">Affeltrangen</option>
+                            <option value="Altnau">Altnau</option>
+                            <option value="Amlikon-Bissegg">Amlikon-Bissegg</option>
+                            <option value="Amriswil">Amriswil</option>
+                            <option value="Arbon">Arbon</option>
+                            <option value="Basadingen-Schlattingen">Basadingen-Schlattingen</option>
+                            <option value="Berg (TG)">Berg (TG)</option>
+                            <option value="Berlingen">Berlingen</option>
+                            <option value="Bettwiesen">Bettwiesen</option>
+                            <option value="Bichelsee-Balterswil">Bichelsee-Balterswil</option>
+                            <option value="Birwinken">Birwinken</option>
+                            <option value="Bischofszell">Bischofszell</option>
+                            <option value="Bottighofen">Bottighofen</option>
+                            <option value="Braunau">Braunau</option>
+                            <option value="Bürglen (TG)">Bürglen (TG)</option>
+                            <option value="Bussnang">Bussnang</option>
+                            <option value="Diessenhofen">Diessenhofen</option>
+                            <option value="Dozwil">Dozwil</option>
+                            <option value="Egnach">Egnach</option>
+                            <option value="Erlen">Erlen</option>
+                            <option value="Ermatingen">Ermatingen</option>
+                            <option value="Eschenz">Eschenz</option>
+                            <option value="Eschlikon">Eschlikon</option>
+                            <option value="Felben-Wellhausen">Felben-Wellhausen</option>
+                            <option value="Fischingen">Fischingen</option>
+                            <option value="Frauenfeld">Frauenfeld</option>
+                            <option value="Gachnang">Gachnang</option>
+                            <option value="Güttingen">Güttingen</option>
+                            <option value="Hauptwil-Gottshaus">Hauptwil-Gottshaus</option>
+                            <option value="Hefenhofen">Hefenhofen</option>
+                            <option value="Herdern">Herdern</option>
+                            <option value="Hohentannen">Hohentannen</option>
+                            <option value="Homburg">Homburg</option>
+                            <option value="Horn">Horn</option>
+                            <option value="Hüttlingen">Hüttlingen</option>
+                            <option value="Hüttwilen">Hüttwilen</option>
+                            <option value="Kemmental">Kemmental</option>
+                            <option value="Kesswil">Kesswil</option>
+                            <option value="Kradolf-Schönenberg">Kradolf-Schönenberg</option>
+                            <option value="Kreuzlingen">Kreuzlingen</option>
+                            <option value="Langrickenbach">Langrickenbach</option>
+                            <option value="Lengwil">Lengwil</option>
+                            <option value="Lommis">Lommis</option>
+                            <option value="Mammern">Mammern</option>
+                            <option value="Märstetten">Märstetten</option>
+                            <option value="Matzingen">Matzingen</option>
+                            <option value="Müllheim">Müllheim</option>
+                            <option value="Münchwilen (TG)">Münchwilen (TG)</option>
+                            <option value="Münsterlingen">Münsterlingen</option>
+                            <option value="Neunforn">Neunforn</option>
+                            <option value="Pfyn">Pfyn</option>
+                            <option value="Raperswilen">Raperswilen</option>
+                            <option value="Rickenbach (TG)">Rickenbach (TG)</option>
+                            <option value="Roggwil (TG)">Roggwil (TG)</option>
+                            <option value="Romanshorn">Romanshorn</option>
+                            <option value="Salenstein">Salenstein</option>
+                            <option value="Salmsach">Salmsach</option>
+                            <option value="Schlatt (TG)">Schlatt (TG)</option>
+                            <option value="Schönholzerswilen">Schönholzerswilen</option>
+                            <option value="Sirnach">Sirnach</option>
+                            <option value="Sommeri">Sommeri</option>
+                            <option value="Steckborn">Steckborn</option>
+                            <option value="Stettfurt">Stettfurt</option>
+                            <option value="Sulgen">Sulgen</option>
+                            <option value="Tägerwilen">Tägerwilen</option>
+                            <option value="Thundorf">Thundorf</option>
+                            <option value="Tobel-Tägerschen">Tobel-Tägerschen</option>
+                            <option value="Uesslingen-Buch">Uesslingen-Buch</option>
+                            <option value="Uttwil">Uttwil</option>
+                            <option value="Wagenhausen">Wagenhausen</option>
+                            <option value="Wäldi">Wäldi</option>
+                            <option value="Wängi">Wängi</option>
+                            <option value="Warth-Weiningen">Warth-Weiningen</option>
+                            <option value="Weinfelden">Weinfelden</option>
+                            <option value="Wigoltingen">Wigoltingen</option>
+                            <option value="Wilen (TG)">Wilen (TG)</option>
+                            <option value="Wuppenau">Wuppenau</option>
+                            <option value="Zihlschlacht-Sitterdorf">Zihlschlacht-Sitterdorf</option>
+                        </select>
+                        <input type="submit" name="test" value="Filtern" onClick="go()">
+                    </div>
+                    <p>
+                        <?php
+                        //error_reporting(0);
+                        $servername = "i-kf.ch:3306";
+                        $username = "EnoS";
+                        $password = "uLI7pXVH";
+                        $dbname = "EnoS_I2DB";
+
+                        // Create connection
+                        $conn = new mysqli($servername, $username, $password, $dbname);
+                        // Check connection
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+                        $sel = $_POST['Gem'];
+                        $jg = $_POST['year'];
+                        $sql = "SELECT LandId, LandJahr, LandStandg FROM TLandprojekt where LandJahr = '$jg' and LandStandg = '$sel'";
+                        //echo $sql;
+                        $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                            echo "<table><tr><th>ID</th><th>LandJahr</th><th>LandStandg</th></tr>";
+                            // output data of each row
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<tr><td>" . $row["LandId"] . "</td><td>" . $row["LandJahr"] . " " . $row["LandStandg"] . "</td></tr>";
+                            }
+                            echo "</table>";
+                        } else {
+                            echo "0 results";
+                        }
+                        ?>
+                    </p>
+                </div>
+            </section>
+            </form>
+
+            <section id="impressum" class="impressum section">
+                <div class="container">
+                    <h2 class="title">Impressum</h2>
+                    <p>
+                        Der Autor übernimmt keinerlei Gewähr hinsichtlich der inhaltlichen Richtigkeit, Genauigkeit, Aktualität, Zuverlässigkeit und Vollständigkeit der Informationen. Haftungsansprüche gegen den Autor wegen Schäden materieller oder immaterieller Art, welche aus dem Zugriff oder der Nutzung bzw. Nichtnutzung der veröffentlichten Informationen, durch Missbrauch der Verbindung oder durch technische Störungen entstanden sind, werden ausgeschlossen. Alle Angebote sind unverbindlich. Der Autor behält es sich ausdrücklich vor, Teile der Seiten oder das gesamte Angebot ohne gesonderte Ankündigung zu verändern, zu ergänzen, zu löschen oder die Veröffentlichung zeitweise oder endgültig einzustellen.
+                    </p><br>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="social-icons">
+                                <ul>
+                                    <a href="https://github.com/ims19-22/ogd07" target="_blank"><li><span class="ion-social-github"></span></li></a>
+                                    <a href="https://opendata.swiss/de/dataset/landwirtschaftliche-tierbestaende-im-kanton-thurgau" target="_blank"><li><span class="ion-link"></span></li></a>
+                                    <a href="https://www.tg.ch/" target="_blank"><li><span class="ion-information"></span></li></a>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <a href="index.php"><span class="ion-home"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <script src="assets/js/jquery-3.1.1.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="https://use.fontawesome.com/55b73bf748.js"></script>
+        <script src="assets/js/script.js"></script>
+
+        <script crossorigin="anonymous"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script crossorigin="anonymous"
+                integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
